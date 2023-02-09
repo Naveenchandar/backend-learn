@@ -4,6 +4,7 @@ const router = express.Router();
 const fs = require('fs');
 const morgan = require('morgan');
 const path = require('path');
+const mongoose = require('mongoose');
 
 module.exports = {
     express,
@@ -11,5 +12,6 @@ module.exports = {
     router,
     fs,
     morgan,
-    path
+    path,
+    mongoose
 } 
