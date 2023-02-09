@@ -1,0 +1,20 @@
+{
+  "name": "backend-learn",
+  "version": "1.0.0",
+  "description": "This repo is for learning Node JS, Express JS and MongoDB compass",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Naveenchandar/backend-learn.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Naveenchandar/backend-learn/issues"
+  },
+  "homepage": "https://github.com/Naveenchandar/backend-learn#readme"
+}
