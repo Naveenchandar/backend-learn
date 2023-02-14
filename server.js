@@ -1,6 +1,7 @@
 const os = require('os');
 const path = require('path');
 const fs = require('fs');
+const fsPromises = require('fs').promises;
 
 
 console.log('HELLO WORLD');
@@ -56,3 +57,24 @@ process.on('uncaughtException', (err) => {
         process.exit(1)
     }
 })
+
+
+// All above methods of fs methods are asynchronous and we don't know which will finish first.
+// In order to make it really asychronous and execute in order, we need to use fspromises instead of fs module.
+// require('fs').promises
+const readWriteUpdateDeleteFile = async () => {
+    try {
+        const readFileData = await fsPromises.readFile('./sample.txt', 'utf8');
+        console.log('readFileData:', readFileData)
+        const writeFileData = await fsPromises.writeFile('./sample.txt', 'This is asynchronous method for writing file with fspromises module');
+        console.log('writeFileData:', writeFileData)
+        const appendFileData = await fsPromises.appendFile('./sample.txt', 'This is asynchronous method for appending the file with fspromises module');
+        console.log('appendFileData:', appendFileData)
+        const unlinkFileData = await fsPromises.unlink('./sample1.txt');
+        console.log('unlinkFileData:', unlinkFileData)
+    } catch (error) {
+        console.log('readWriteUpdateDeleteFile error:', error)
+    }
+}
+
+readWriteUpdateDeleteFile();
