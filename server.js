@@ -77,4 +77,20 @@ const readWriteUpdateDeleteFile = async () => {
     }
 }
 
+const readWriteUpdateDeleteFileWithFileDynamicLocation = async () => {
+    try {
+        const readFileData = await fsPromises.readFile(path.join(__dirname, 'sample1.txt'), 'utf8');
+        console.log('readFileData:', readFileData)
+        const writeFileData = await fsPromises.writeFile(path.join(__dirname, 'sample1.txt'), 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa');
+        console.log('writeFileData:', writeFileData)
+        const appendFileData = await fsPromises.appendFile(path.join(__dirname, 'sample1.txt'), 'zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz');
+        console.log('appendFileData:', appendFileData)
+        const unlinkFileData = await fsPromises.unlink(path.join(__dirname, 'sample1.txt'));
+        console.log('unlinkFileData:', unlinkFileData)
+    } catch (error) {
+        console.log('readWriteUpdateDeleteFile error:', error)
+    }
+}
+
 readWriteUpdateDeleteFile();
+readWriteUpdateDeleteFileWithFileDynamicLocation();
