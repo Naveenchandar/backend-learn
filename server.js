@@ -2,6 +2,8 @@ const os = require('os');
 const path = require('path');
 const fs = require('fs');
 const fsPromises = require('fs').promises;
+const express = require('express');
+const app = express();
 
 
 console.log('HELLO WORLD');
@@ -94,3 +96,15 @@ const readWriteUpdateDeleteFileWithFileDynamicLocation = async () => {
 
 readWriteUpdateDeleteFile();
 readWriteUpdateDeleteFileWithFileDynamicLocation();
+
+app.get('/new-page.html', (req, res) => {
+    res.sendFile(path.join(__dirname, 'index.html'));
+})
+
+app.get('/old-page.html', (req, res) => {
+    res.redirect(301, '/new-page.html');
+})
+
+app.listen(process.env.PORT || 3500, () => {
+    console.log(`server started and port running on ${process.env.PORT || 3500}`)
+})
