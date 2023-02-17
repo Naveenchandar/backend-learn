@@ -105,6 +105,10 @@ app.get('/old-page.html', (req, res) => {
     res.redirect(301, '/new-page.html');
 })
 
+app.get('^/$|/index(.html)?', (req, res) => {
+    res.send('Hello index from node');
+})
+
 app.listen(process.env.PORT || 3500, () => {
     console.log(`server started and port running on ${process.env.PORT || 3500}`)
 })
